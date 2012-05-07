@@ -124,7 +124,7 @@
         <li><a class="filter-link" data-col="1" data-filter="Democratic-Farmer-Labor" href="#dfl">DFL</a></li>
         <li><a class="filter-link" data-col="1" data-filter="Republican" href="#gop">GOP</a></li>
         <li class="separator">|</li>
-        <li><a class="filter-link filter-clear" href="#clera">Show all</a></li>
+        <li><a class="filter-link filter-clear" href="#clear">Show all</a></li>
       </ul>
     </div>
     
@@ -275,7 +275,7 @@
       </table>
     </div>
     
-    <p class="footnote">Data from <a href=""></a>.</p>
+    <p class="footnote">Data from <a href="http://www.leg.state.mn.us/">Minnesota State Legislature</a> with some processing via <a href="http://openstates.org/">Open States</a>.</p>
   
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/bubbletree-master-20120410/lib/jquery-1.5.2.min.js"><\/script>')</script>
     <script type="text/javascript" src="http://data.minnpost.s3.amazonaws.com/js/datatables-1.9.0/js/jquery.dataTables.min.js"></script>
@@ -307,7 +307,7 @@
           // Define table
           var VoteTable = $('#mn-leg-votes-table').dataTable({
             //'aaSorting': [[ 0, 'desc' ]],
-            'iDisplayLength': 15,
+            'iDisplayLength': 10,
             'aLengthMenu': [[10, 15, 25, 50, 100, -1], [10, 15, 25, 50, 100, 'All']]
           }); 
           var colCount = 4;
@@ -319,7 +319,7 @@
             var $thisLink = $(this);
             
             if ($thisLink.hasClass('filter-clear')) {
-              for (var i = 0; i++; i < colCount) {
+              for (var i = 0; i < colCount; i++) {
                 VoteTable.fnFilter('', i);
               }
               $('.filter-links a').removeClass('filtering');
